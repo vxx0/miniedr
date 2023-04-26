@@ -14,7 +14,7 @@ The list of supported functions is as follows:
 These rules require configuring the registry.
 You can refer to the example miniedr.reg.
 
-## miniedr.reg
+# miniedr.reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\miniedr]
@@ -45,3 +45,4 @@ Windows Registry Editor Version 5.00
 "1"="*123.exe"
 
 # Extract digital signature certificate from file
+### Refer to the document in the cert.zip file.
