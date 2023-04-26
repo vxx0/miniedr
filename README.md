@@ -44,6 +44,4 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\miniedr\ImagePathBlockList]
 "1"="*123.exe"
 
-
-
-## Please leave a message if you have any needs.
+# Extract digital signature certificate from file
