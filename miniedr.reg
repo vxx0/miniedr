@@ -1,6 +1,4 @@
-﻿//Each registry key supports multiple rules
- 
-Windows Registry Editor Version 5.00
+﻿Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\miniedr]
 "Type"=dword:00000001
@@ -17,15 +15,19 @@ Windows Registry Editor Version 5.00
 //x64 module
 "TrampoLib64"="c:\\test\\a64.dll"
 
-//This is a regular example of blocking usage
+//This is a regular example of blocking usage. supports multiple rules.
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\miniedr\ComandLineBlockList]
-"xxx"="*4567*"
+"xxx"="*123*"
+"x1"="*4567*"
 
-//This is the sha256 of the digital signature certificate of the file (sys dll exe)
+//This is the sha256 of the digital signature certificate of the file (sys dll exe). 
+//supports multiple rules.
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\miniedr\Hash]
 "a"="c0772d3c9e20c3f4ebb09f5816d6dada0d8fa86563c2d68898539ec1cd355a1b"
+"2"="d8fa86563c2d68898539ec1cd355a10c0772d3c9e20c3f4ebb09f5816d6dada0"
 
-//This is a regular example of blocking usage
+//This is a regular example of blocking usage. supports multiple rules.
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\miniedr\ImagePathBlockList]
 "1"="*123.exe"
+"word"="*winword*"
 
