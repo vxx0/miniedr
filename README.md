@@ -12,7 +12,7 @@ The list of supported functions is as follows:
 8. support for injecting antivirus modules into other processes.
 
 # These rules require configuring the registry.
-You can refer to the example __miniedr.reg__(https://github.com/vxx0/miniedr/blob/main/miniedr.reg).
+Refer to the document in the __miniedr.reg__(https://github.com/vxx0/miniedr/blob/main/miniedr.reg).
 
 
 # Extract digital signature certificate from file
