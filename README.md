@@ -15,5 +15,7 @@ The list of supported functions is as follows:
 Refer to the document in the __miniedr.reg__(https://github.com/vxx0/miniedr/blob/main/miniedr.reg).
 
 
-# Extract digital signature certificate from file
+# Extract digital signature certificate from file.
 Refer to the document in the __cert.zip__(https://github.com/vxx0/miniedr/blob/main/cert.zip).
+
+# For other questions. please write Issues.
