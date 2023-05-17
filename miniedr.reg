@@ -11,9 +11,15 @@
 "DisplayName"="miniedr"
 
 //This is the injected module. wow64 process.
-"TrampoLib32"="c:\\test\\a32.dll"
+"TrampoLib32"="c:\\miniedr\\core32.dll"
 //x64 module
-"TrampoLib64"="c:\\test\\a64.dll"
+"TrampoLib64"="c:\\miniedr\\core64.dll"
+//protect file fullpath (directory)
+"ProtectFilePath"="*miniedr*"
+//trust process 
+"TrustProcess"="*miniedr*.exe"
+//unload value zero disable unload driver
+"unload"=dword:00000001
 
 //This is a regular example of blocking usage. supports multiple rules.
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\miniedr\ComandLineBlockList]
@@ -30,4 +36,9 @@
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\miniedr\ImagePathBlockList]
 "1"="*123.exe"
 "word"="*winword*"
+
+//This is a regular example of exclude inject process list. supports multiple rules.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\miniedr\ExcludeInjectProcessList]
+"1"="*svchost.exe"
+"2"="*winlogon.exe"
 
