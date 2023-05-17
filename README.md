@@ -21,8 +21,9 @@ Refer to the document in the __cert.zip__(https://github.com/vxx0/miniedr/blob/m
 # For other questions. please write Issues.
 
 
-# 5/17 2023 
-## Trusted processes can modify protected files and registry
+
+## 5/17 2023 
+### Trusted processes can modify protected files and registry
 1. added file & directory protection
 2. add trusted process
 3. add exclusion injection process list
