@@ -14,11 +14,11 @@
 "TrampoLib32"="c:\\miniedr\\core32.dll"
 //x64 module
 "TrampoLib64"="c:\\miniedr\\core64.dll"
-//protect file fullpath (directory)
+//The full path of the protected directory, supporting wildcards
 "ProtectFilePath"="*miniedr*"
-//trust process 
+//The full path of the trusted process, supporting wildcards
 "TrustProcess"="*miniedr*.exe"
-//unload value zero disable unload driver
+//The unload value is 0 to not unloadable, 1 to be unloadable
 "unload"=dword:00000001
 
 //This is a regular example of blocking usage. supports multiple rules.
@@ -37,7 +37,7 @@
 "1"="*123.exe"
 "word"="*winword*"
 
-//This is a regular example of exclude inject process list. supports multiple rules.
+//process injection exclusion list. supports multiple rules & wildcards.
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\miniedr\ExcludeInjectProcessList]
 "1"="*svchost.exe"
 "2"="*winlogon.exe"
