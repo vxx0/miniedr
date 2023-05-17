@@ -1,0 +1,104 @@
+;
+; miniedr.inf
+;
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = "ContentScreener"                         ;This is determined by the work this filter driver does
+ClassGuid   = {78A1C341-4539-11d3-B88D-00C04FAD5171}    ;This value is determined by the Class
+Provider    = %ProviderString%
+DriverVer   = 06/16/2011,1.0.0.1
+CatalogFile = miniedr.cat
+
+
+[DestinationDirs]
+DefaultDestDir          = 12
+miniedr.DriverFiles      = 12            ;%windir%\system32\drivers
+miniedr.UserFiles        = 10,FltMgr     ;%windir%\FltMgr
+
+;;
+;; Default install sections
+;;
+
+[DefaultInstall]
+OptionDesc          = %ServiceDescription%
+CopyFiles           = miniedr.DriverFiles
+
+[DefaultInstall.Services]
+AddService          = %ServiceName%,,miniedr.Service
+
+;;
+;; Default uninstall sections
+;;
+
+[DefaultUninstall]
+DelFiles   = miniedr.DriverFiles
+
+[DefaultUninstall.Services]
+DelService = %ServiceName%,0x200      ;Ensure service is stopped before deleting
+
+;
+; Services Section
+;
+
+[miniedr.Service]
+DisplayName      = %ServiceName%
+Description      = %ServiceDescription%
+ServiceBinary    = %12%\%DriverName%.sys        ;%windir%\system32\drivers\
+Dependencies     = "FltMgr"
+ServiceType      = 2                            ;SERVICE_FILE_SYSTEM_DRIVER
+StartType        = 3                            ;SERVICE_DEMAND_START
+ErrorControl     = 1                            ;SERVICE_ERROR_NORMAL
+LoadOrderGroup   = "FSFilter Content Screener"
+AddReg           = miniedr.AddRegistry
+
+;
+; Registry Modifications
+;
+
+[miniedr.AddRegistry]
+HKR,,"DebugFlags",0x00010001,0xc
+HKR,"Instances","DefaultInstance",0x00000000,%DefaultInstance%
+HKR,"Instances\"%Instance1.Name%,"Altitude",0x00000000,%Instance1.Altitude%
+HKR,"Instances\"%Instance1.Name%,"Flags",0x00010001,%Instance1.Flags%
+HKR,,"TrampoLib32",0,%TrampoLib32%
+HKR,,"TrampoLib64",0,%TrampoLib64%
+HKR,,"TrustProcess",0,%TrustProcess%
+HKR,,"ProtectFilePath",0,%ProtectFilePath%
+HKR,,"unload",0x00010001,%unload%
+
+;
+; Copy Files
+;
+
+[miniedr.DriverFiles]
+%DriverName%.sys
+
+[SourceDisksFiles]
+miniedr.sys = 1,,
+
+[SourceDisksNames]
+1 = %DiskId1%,,,
+
+;;
+;; String Section
+;;
+
+[Strings]
+ProviderString          = "TODO-Set-Provider"
+ServiceDescription      = "Anti-virus Mini-Filter Driver"
+ServiceName             = "miniedr"
+DriverName              = "miniedr"
+UserAppName             = "miniedr"
+DiskId1                 = "Anti-virus Device Installation Disk"
+TrampoLib32 = "c:\miniedr\core32.dll"
+TrampoLib64 = "c:\miniedr\core64.dll"
+TrustProcess = "*miniedr.exe"
+ProtectFilePath = "*miniedr*"
+unload = "1"
+
+;Instances specific information.
+DefaultInstance         = "miniedr Instance"
+Instance1.Name          = "miniedr Instance"
+Instance1.Altitude      = "260000"
+Instance1.Flags         = 0x0              ; Allow all attachments
